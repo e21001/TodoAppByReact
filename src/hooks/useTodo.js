@@ -18,9 +18,9 @@ export const useTodo = () => {
 
         todoData.updateTodoData(id, newTodoItem).then((updatedTodo) => {
             const newTodoList = todoList.map((item) => item.id !== updatedTodo.id ? item : updatedTodo)
-        })
 
-        setTodoList(newTodoList)
+            setTodoList(newTodoList)
+        })
     }
 
     const addTodoListItem = (todoContent) => {
@@ -35,12 +35,12 @@ export const useTodo = () => {
         })
     }
 
-    const deleteTodoData = (id) => {
-        todoData.deleteTodoData(id).then((deleteListItem) => {
+    const deleteTodoListItem = (id) => {
+        todoData.deleteTodoData(id).then((deleteListItemId) => {
             const newTodoList = todoList.filter((item) => item.id !== deleteListItemId)
-        })
 
-        setTodoList(newTodoList)
+            setTodoList(newTodoList)
+        })
     }
 
     return {
